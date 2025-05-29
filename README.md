@@ -9,3 +9,23 @@ whatever chaotic application this repo will contain.</p>
 
 <h2>Future Goal</h2>
 <p>I plan on making a notetaking app for books, like a Netflix for Notetaking type of application using JavaFX.</p>
+
+<h3>Day 1</h3>
+<p>What I learned:</p>
+<ul>
+  <li>Basic JavaFX GUI components such as Stage, Scene, Layout, Nodes, Regions.</li>
+  <li>Implementing a Model-View-Controller-Interactor (MVC-I) framework in Java using multiple classes.</li>
+  <li>What is coupling in programming and how to avoid it for iterative updates.</li>
+  <li>The DRY (Don't Repeat Yourself) principle and how to leverage Builders in Java.</li>
+  <li>Why it's better to work in a MVC-I framework for JavaFX compared to using the FXML method.</li>
+</ul>
+
+<h3>Day 2</h3>
+<p>What I learned:</p>
+<ul>
+  <li>How to implement a Database in Java, including performing JUnit tests on it.</li>
+  <li>Modifying a Maven pom.xml file to include other dependencies.</li>
+  <li>What is a DAO (Data Access Object) and how to implement one for the created Database (and how to test it).</li>
+  <li>What are Domain objects and how to create a Domain to track business logic.</li>
+  <li>What is a Broker and how to implement one and weave it together with the Model and Interactors.</li>
+</ul>
