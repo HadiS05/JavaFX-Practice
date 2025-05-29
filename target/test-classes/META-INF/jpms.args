@@ -1,0 +1,4 @@
+--patch-module
+com.bn=_
+--add-reads
+com.bn=ALL-UNNAMED
