@@ -1,6 +1,7 @@
 package com.bn;
 
 import java.util.Objects;
+import java.util.function.Consumer;
 
 import javafx.beans.property.StringProperty;
 import javafx.geometry.Insets;
@@ -23,11 +24,12 @@ import javafx.util.Builder;
 
 public class CustomerViewBuilder implements Builder {
     private final CustomerModel model;
-    private final Runnable handler;
+    private final Consumer<Runnable> handler; 
+    // We are using a consumer so that we can run the thread and then "consume" it (meaning return nothing)
 
-    public CustomerViewBuilder(CustomerModel model, Runnable handler){
+    public CustomerViewBuilder(CustomerModel model, Consumer<Runnable> handler){
         this.model = model;
-        this.handler = handler;
+        this.handler = handler; // This is meant to run a method after pressing button
     }
 
     @Override
@@ -66,7 +68,11 @@ public class CustomerViewBuilder implements Builder {
 
     public Node createBottom() {
         Button save = new Button("Save");
-        save.setOnAction(evt -> handler.run());
+        save.setOnAction(evt -> {
+            save.setDisable(true); // Initially disable the button after it's pressed (to avoid double saves)
+            // Consumer performs the runnable task (enables the button)
+            handler.accept(() -> save.setDisable(false));
+        }); // Run the function
         HBox result = new HBox(10, save);
         result.setAlignment(Pos.CENTER_RIGHT);
         return result;

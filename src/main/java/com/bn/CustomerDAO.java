@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class CustomerDAO {
     // Static since we only want one database
-    private static CustomerDatabase database = new CustomerDatabase();
+    private static CustomerDatabaseSlowed database = new CustomerDatabaseSlowed(3000);
 
     public int saveCustomer(Map<String, String> customerRecord){
         return database.saveCustomer(customerRecord);

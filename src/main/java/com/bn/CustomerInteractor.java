@@ -9,9 +9,11 @@ public class CustomerInteractor {
     }
 
     public void save() {
+        String name = model.getAccountName(); // Save the name beforehand to avoid any changes in live State
+        String accountNum = model.getAccountNumber(); // Same as above for accountNumber
         int result = broker.saveCustomer(customerFromModel());
-        System.out.println("Saving account of " + model.getAccountName() + ", # is " + 
-            model.getAccountNumber() + " Final result: " + result);
+        System.out.println("Saving account of " + name + ", # is " + 
+            accountNum + " Final result: " + result);
     }
 
     public Customer customerFromModel() {
