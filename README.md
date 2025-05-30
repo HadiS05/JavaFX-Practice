@@ -29,3 +29,11 @@ whatever chaotic application this repo will contain.</p>
   <li>What are Domain objects and how to create a Domain to track business logic.</li>
   <li>What is a Broker and how to implement one and weave it together with the Model and Interactors.</li>
 </ul>
+
+<h3>Day 3</h3>
+<p>What I learned:</p>
+<ul>
+  <li>How to add Latency and Blocking to mimic a live database.</li>
+  <li>Proper practice for testing database (how to separate testing and production databases)</li>
+  <li>Implemented Java Consumer interface for concurrent processes.</li>
+</ul>
