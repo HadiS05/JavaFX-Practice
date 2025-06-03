@@ -1,5 +1,7 @@
 package com.bn;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -9,9 +11,25 @@ public class CustomerModel {
     // getters and setters.
     private final StringProperty accountNumber = new SimpleStringProperty("");
     private final StringProperty accountName = new SimpleStringProperty("");
+    private final BooleanProperty safeToSave = new SimpleBooleanProperty(false);
 
     public CustomerModel(){
 
+    }
+
+    // Getter for safeToSave
+    public Boolean getSafeToSave() {
+        return safeToSave.get();
+    }
+
+    // Setter for safeToSave 
+    public void setSafeToSave(Boolean safeToSave) {
+        this.safeToSave.set(safeToSave);
+    }
+
+    // Get reference for safeToSave property
+    public BooleanProperty getSafeToProperty(){
+        return safeToSave;
     }
 
     // Getter for accountNumber

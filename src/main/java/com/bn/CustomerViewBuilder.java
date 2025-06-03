@@ -68,10 +68,15 @@ public class CustomerViewBuilder implements Builder {
 
     public Node createBottom() {
         Button save = new Button("Save");
+        // If the boolean safe property is false, then disable button is true
+        save.disableProperty().bind(model.getSafeToProperty().not());
         save.setOnAction(evt -> {
+            // We have to unbind the property for disabling before allowing the action to proceed
+            // This prevents a runtime error
+            save.disableProperty().unbind();
             save.setDisable(true); // Initially disable the button after it's pressed (to avoid double saves)
-            // Consumer performs the runnable task (enables the button)
-            handler.accept(() -> save.setDisable(false));
+            // Consumer performs the runnable task (rebind the button and only enable if safe)
+            handler.accept(() -> save.disableProperty().bind(model.getSafeToProperty().not()));
         }); // Run the function
         HBox result = new HBox(10, save);
         result.setAlignment(Pos.CENTER_RIGHT);

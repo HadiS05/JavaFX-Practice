@@ -34,6 +34,6 @@ whatever chaotic application this repo will contain.</p>
 <p>What I learned:</p>
 <ul>
   <li>How to add Latency and Blocking to mimic a live database.</li>
-  <li>Proper practice for testing database (how to separate testing and production databases)</li>
+  <li>Proper practice for testing database (how to separate testing and production databases).</li>
   <li>Implemented Java Consumer interface for concurrent processes.</li>
 </ul>
