@@ -37,3 +37,9 @@ whatever chaotic application this repo will contain.</p>
   <li>Proper practice for testing database (how to separate testing and production databases).</li>
   <li>Implemented Java Consumer interface for concurrent processes.</li>
 </ul>
+
+<h3>Day 4</h3>
+<p>What I learned:</p>
+<ul>
+  <li>How to use the BooleanProperty class in JavaFX to bind properties to a validating function.</li>
+</ul>
