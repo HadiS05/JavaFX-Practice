@@ -1,6 +1,7 @@
 package com.bn;
 
 import javafx.concurrent.Task;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.Region;
 import javafx.util.Builder;
 
@@ -19,15 +20,27 @@ public class CustomerController {
         // We use a Task instead of a Thread here because a task will notify us
         // when it has completed, allowing us to have more control over what
         // we can do.
-        Task<Void> saveTask = new Task<Void>() {
+        Task<Boolean> saveTask = new Task<>() {
             @Override
-            protected Void call() {
-                interactor.save();
-                return null;
+            protected Boolean call() {
+                return interactor.save();
             }
         };
         // When the save task is completed successfully, then run the post-task actions
-        saveTask.setOnSucceeded(evt -> postTaskGUI.run());
+        saveTask.setOnSucceeded(evt -> {
+            postTaskGUI.run();
+            if (!saveTask.getValue()) { // If the task was not successfully saved
+                // Then call an alert
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("That account number already exists.");
+                alert.show();
+            } else {
+                // If our task is successful, give feedback to the user.
+                Alert success = new Alert(Alert.AlertType.CONFIRMATION);
+                success.setContentText("Account saved.");
+                success.show();
+            }
+        });
         Thread saveThread = new Thread(saveTask);
         saveThread.start();
     }

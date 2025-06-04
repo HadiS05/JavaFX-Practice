@@ -13,12 +13,17 @@ public class CustomerInteractor {
         model.getSafeToProperty().bind(Bindings.createBooleanBinding(this::validData, model.getAccountNameProperty(), model.getAccountNumberProperty()));
     }
 
-    public void save() {
+    public Boolean save() {
         String name = model.getAccountName(); // Save the name beforehand to avoid any changes in live State
         String accountNum = model.getAccountNumber(); // Same as above for accountNumber
-        int result = broker.saveCustomer(customerFromModel());
-        System.out.println("Saving account of " + name + ", # is " + 
+        try {
+            int result = broker.saveCustomer(customerFromModel());
+            System.out.println("Saving account of " + name + ", # is " + 
             accountNum + " Final result: " + result);
+            return true;
+        } catch (DuplicateCustomerException e) {
+            return false;
+        }
     }
 
     public Customer customerFromModel() {

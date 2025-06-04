@@ -43,3 +43,12 @@ whatever chaotic application this repo will contain.</p>
 <ul>
   <li>How to use the BooleanProperty class in JavaFX to bind properties to a validating function.</li>
 </ul>
+
+<h3>Day 5</h3>
+<p>What I learned:</p>
+<ul>
+  <li>How to implement a custom exception in JavaFX.</li>
+  <li>How to create an Alert in JavaFX to provide feedback to the user.</li>
+  <li>Further work on relationships between the DAO, Broker, Database, and the rest of the components.</li>
+  <li>How to strictly keep GUI purely as graphical components and separate it from business logic.</li>
+</ul>

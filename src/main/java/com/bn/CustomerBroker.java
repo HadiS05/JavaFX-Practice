@@ -6,7 +6,7 @@ import java.util.Map;
 public class CustomerBroker {
     private final CustomerDAO dao = new CustomerDAO();
 
-    public int saveCustomer(Customer customer){
+    public int saveCustomer(Customer customer) throws DuplicateCustomerException {
         return dao.saveCustomer(customerToRecord(customer));
     }
 
